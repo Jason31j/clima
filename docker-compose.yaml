@@ -11,7 +11,7 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - "3307:3306"
     networks:
       - clima
 
@@ -21,6 +21,7 @@ services:
       dockerfile: Dockerfile
     command: >
       sh -c "python wait_for_db.py &&
+             python manage.py makemigrations &&
              python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
     volumes:
