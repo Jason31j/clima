@@ -3,11 +3,15 @@ version: "3.9"
 services:
 
   db:
-    image: mariadb:11
+    image: mariadb
     restart: always
     environment:
-      MARIA_ROOT_PASSWORD: password
-      MARIA_DATABASE: database
+      MARIADB_ROOT_PASSWORD: password
+      MARIADB_DATABASE: database
+      MARIADB_USER: root
+      MARIADB_PASSWORD: password
+      MARIADB_PASSWORD_: password
+
     volumes:
       - db_data:/var/lib/mysql
     ports:
