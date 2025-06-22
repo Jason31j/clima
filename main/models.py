@@ -6,6 +6,7 @@ class Weather(models.Model):
     mes = models.IntegerField()
     agno = models.IntegerField()
     probabilidad = models.IntegerField()
+    
 
 
     def __str__(self):
