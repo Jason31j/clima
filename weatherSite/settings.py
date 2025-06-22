@@ -14,7 +14,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import pymysql
-pymysql.install_as_MySQLdb()
+#pymysql.install_as_MySQLdb()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -92,18 +92,32 @@ WSGI_APPLICATION = 'weatherSite.wsgi.application'
     
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',  # Sí, sigue siendo 'mysql'
+#         'NAME': 'database',
+#         'USER': 'root',
+#         'PASSWORD': 'password',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#         # Opcional:
+        
+#     }
+# }
+
+import os
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Sí, sigue siendo 'mysql'
-        'NAME': 'database',
-        'USER': 'root',
-        'PASSWORD': 'password',
-        'HOST': '127.0.0.1',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME', 'dbdjango'),
+        'USER': os.getenv('DB_USER', 'userdjango'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'passdjango'),
+        'HOST': os.getenv('DB_HOST', 'db'),
         'PORT': '3306',
-        # Opcional:
-        
     }
 }
+
 
 
 
