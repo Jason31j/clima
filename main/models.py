@@ -5,7 +5,7 @@ class Weather(models.Model):
     dia = models.CharField(max_length=100)
     mes = models.IntegerField()
     agno = models.IntegerField()
-    probabilidad = models.IntegerField(max_length=255)
+    probabilidad = models.IntegerField()
 
 
     def __str__(self):
